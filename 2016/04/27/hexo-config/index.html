@@ -15,7 +15,7 @@
 Quick">
 <meta property="og:type" content="article">
 <meta property="og:title" content="开始在 hexo 上书写文章">
-<meta property="og:url" content="http://yoursite.com/2016/04/27/hexo-config/index.html">
+<meta property="og:url" content="http://npxawebshare.github.io/2016/04/27/hexo-config/index.html">
 <meta property="og:site_name" content="WEB Development Department 共享平台">
 <meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
 Quick">
@@ -25,6 +25,8 @@ Quick">
 <meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
 Quick">
 
+    
+    <link rel="alternative" href="atom.xml" title="WEB Development Department 共享平台" type="application/atom+xml">
     
     
     <link rel="icon" href="/img/favicon.ico">
@@ -285,7 +287,7 @@ or you can check the docs: http://hexo.io/docs/
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/04/27/hexo-config/" data-title="开始在 hexo 上书写文章 | WEB Development Department 共享平台" data-tsina="null" class="share clearfix">
+	  <div data-url="http://npxawebshare.github.io/2016/04/27/hexo-config/" data-title="开始在 hexo 上书写文章 | WEB Development Department 共享平台" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -319,7 +321,7 @@ or you can check the docs: http://hexo.io/docs/
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/04/27/hexo-config/" data-title="开始在 hexo 上书写文章" data-url="http://yoursite.com/2016/04/27/hexo-config/"></div>
+	<div class="ds-thread" data-thread-key="2016/04/27/hexo-config/" data-title="开始在 hexo 上书写文章" data-url="http://npxawebshare.github.io/2016/04/27/hexo-config/"></div>
 </section>
 
 
@@ -383,27 +385,7 @@ or you can check the docs: http://hexo.io/docs/
 			
 		
 			
-				<li><a href="/tags/分享/" title="分享">分享<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/前端/" title="前端">前端<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/环境搭建，pva/" title="环境搭建，pva">环境搭建，pva<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/ajax/" title="ajax">ajax<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/实习学习总结/" title="实习学习总结">实习学习总结<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/tag1/" title="tag1">tag1<sup>1</sup></a></li>
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
 			
 		
 			
@@ -411,11 +393,23 @@ or you can check the docs: http://hexo.io/docs/
 			
 		
 			
+				<li><a href="/tags/前端/" title="前端">前端<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tag1/" title="tag1">tag1<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tag2/" title="tag2">tag2<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/tag3/" title="tag3">tag3<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+				<li><a href="/tags/环境搭建，pva/" title="环境搭建，pva">环境搭建，pva<sup>1</sup></a></li>
 			
 		
 			
@@ -435,7 +429,15 @@ or you can check the docs: http://hexo.io/docs/
 			
 		
 			
-				<li><a href="/tags/tag2/" title="tag2">tag2<sup>1</sup></a></li>
+				<li><a href="/tags/分享/" title="分享">分享<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ajax/" title="ajax">ajax<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/实习学习总结/" title="实习学习总结">实习学习总结<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -503,8 +505,9 @@ or you can check the docs: http://hexo.io/docs/
     </ul>
 </div>
 
-  
-
+  <div class="rsspart">
+	<a href="atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
 
   <div class="weiboshow">
   <p class="asidetitle">新浪微博</p>
@@ -546,6 +549,12 @@ or you can check the docs: http://hexo.io/docs/
 	</div>
 			
 		
+				<div class="cc-license">
+          <a href="http://creativecommons.org/licenses/by-nc/4.0" class="cc-opacity" target="_blank">
+            <img src="/img/cc-by-nc.svg" alt="Creative Commons" />
+          </a>
+        </div>
+    
 
 		<p class="copyright">
 		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
@@ -730,16 +739,6 @@ $(document).ready(function(){
 <!-- Analytics Begin -->
 
 
-
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
 
 
 

@@ -17,24 +17,26 @@
 代码编写规范文件编码格式所有诸如JS，HTML，CSS等文本类型文件的编码格式必须使用UTF8方式。文件内的换行符统一使用UNIX风格或者Window风格，文件编辑过程中最好不要变更。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript编程规范">
-<meta property="og:url" content="http://yoursite.com/2016/07/13/codeStandards/index.html">
+<meta property="og:url" content="http://npxawebshare.github.io/2016/07/13/codeStandards/index.html">
 <meta property="og:site_name" content="WEB Development Department 共享平台">
 <meta property="og:description" content="hljs.initHighlightingOnLoad();
    
 
 代码编写规范文件编码格式所有诸如JS，HTML，CSS等文本类型文件的编码格式必须使用UTF8方式。文件内的换行符统一使用UNIX风格或者Window风格，文件编辑过程中最好不要变更。">
-<meta property="og:image" content="http://yoursite.com/image015.png">
-<meta property="og:image" content="http://yoursite.com/image016.png">
-<meta property="og:image" content="http://yoursite.com/image027.png">
-<meta property="og:updated_time" content="2016-08-08T01:50:10.176Z">
+<meta property="og:image" content="http://npxawebshare.github.io/image015.png">
+<meta property="og:image" content="http://npxawebshare.github.io/image016.png">
+<meta property="og:image" content="http://npxawebshare.github.io/image027.png">
+<meta property="og:updated_time" content="2016-08-11T09:18:03.165Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript编程规范">
 <meta name="twitter:description" content="hljs.initHighlightingOnLoad();
    
 
 代码编写规范文件编码格式所有诸如JS，HTML，CSS等文本类型文件的编码格式必须使用UTF8方式。文件内的换行符统一使用UNIX风格或者Window风格，文件编辑过程中最好不要变更。">
-<meta name="twitter:image" content="http://yoursite.com/image015.png">
+<meta name="twitter:image" content="http://npxawebshare.github.io/image015.png">
 
+    
+    <link rel="alternative" href="atom.xml" title="WEB Development Department 共享平台" type="application/atom+xml">
     
     
     <link rel="icon" href="/img/favicon.ico">
@@ -138,53 +140,18 @@
 </ul>
 <h3 id="括号的使用以及块的定义"><a href="#括号的使用以及块的定义" class="headerlink" title="括号的使用以及块的定义"></a>括号的使用以及块的定义</h3><p><strong>括号的使用配对必须对齐使用。</strong></p>
 <p>1.当大括号用于块结构时：左括号应当位于块起始行的最后一个字符，与前一个符号，函数名等间隔一个空格，与保留字之间保留一个空格或者不留空格；右括号应当与块起始位置对齐。例如：</p>
-<pre><code>//case 1:
-function myFun() {
-    //my function body ...
-}
-
-//case 2:
-var myFun = function() {
-    //my  function body ...
-};
-
-//case 3:
-if (a &gt; 100) {
-    //TODO
-} else {
-    //TODO
-}
-</code></pre><blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//case 1:</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//my function body ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//case 2:</span></span><br><span class="line"><span class="keyword">var</span> myFun = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//my  function body ...</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//case 3:</span></span><br><span class="line"><span class="keyword">if</span> (a &gt; <span class="number">100</span>) &#123;</span><br><span class="line">    <span class="comment">//TODO</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">//TODO</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
 <p>备注:此规则的应用可以借助代码格式化(或者格式化插件)实现，<strong>需要注意的是</strong>，<em>建议大家都应该在编写代码的时候养成好的习惯，而不要过分依赖格式化插件，特别是对于修改之前别人写的代码，如果贸然格式化将会引起大范围的diff差异，慎用;</em></p>
 </blockquote>
 <p>2.当括号用于非块级结构时：括号前后如为操作符，应当间隔一个空格；其他情况，特别是函数名，分号，逗号，或者其他括号时，之后应当不留空格。例如：</p>
-<pre><code>var a = fun1(1, 2) + 3;
-var b  = [1, 2, [3]];
-var c = {};
-</code></pre><blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = fun1(<span class="number">1</span>, <span class="number">2</span>) + <span class="number">3</span>;</span><br><span class="line"><span class="keyword">var</span> b  = [<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>]];</span><br><span class="line"><span class="keyword">var</span> c = &#123;&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
 <p>备注:此规则的应用可以借助代码格式化(或者格式化插件)实现，<strong>需要注意的是，</strong> <em>建议大家都应该在编写代码的时候养成好的习惯，而不要过分依赖格式化插件，特别是对于修改之前别人写的代码，如果贸然格式化将会引起大范围的diff差异，慎用;</em></p>
 </blockquote>
 <p><strong>3.当括号用于比较大的数据结构时，应当按照块级结构的方式进行编写。例如：</strong></p>
-<pre><code>var positions = [{
-    x: 1,
-    y: 2
-}, {
-    x: 4,
-    y: 6
-}];
-var a = [{
-    a: &quot;one&quot;,
-    b: 1
-}, {
-    a: &quot;two&quot;,
-    b: 1
-}];
-
-var c = [
-        [&quot;one&quot;, &quot;local site&quot;, function() {/*TODO*/}],
-        [&quot;step2&quot;, &quot;remote site&quot;, function() {/*TODO*/}]
-];
-</code></pre><blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> positions = [&#123;</span><br><span class="line">    x: <span class="number">1</span>,</span><br><span class="line">    y: <span class="number">2</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">    x: <span class="number">4</span>,</span><br><span class="line">    y: <span class="number">6</span></span><br><span class="line">&#125;];</span><br><span class="line"><span class="keyword">var</span> a = [&#123;</span><br><span class="line">    a: <span class="string">"one"</span>,</span><br><span class="line">    b: <span class="number">1</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">    a: <span class="string">"two"</span>,</span><br><span class="line">    b: <span class="number">1</span></span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = [</span><br><span class="line">        [<span class="string">"one"</span>, <span class="string">"local site"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;<span class="comment">/*TODO*/</span>&#125;],</span><br><span class="line">        [<span class="string">"step2"</span>, <span class="string">"remote site"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;<span class="comment">/*TODO*/</span>&#125;]</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+<blockquote>
 <p>备注:此规则的应用可以借助代码格式化(或者格式化插件)实现，<strong>需要注意的是，*</strong>建议大家都应该在编写代码的时候养成好的习惯，而不要过分依赖格式化插件，特别是对于修改之前别人写的代码，如果贸然格式化将会引起大范围的diff差异，慎用;*</p>
 </blockquote>
 <h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><ul>
@@ -202,60 +169,19 @@ var c = [
 </ul>
 <p>块注释主要使用在前三种情况，而后两种情况主要使用行注释。</p>
 <p>块级注释样例：（包括概述、作者、日期、参数说明）</p>
-<pre><code>/**
- * [cacheAjaxObject 缓存ajax对象，以便于查看和取消]
- * @author yuqiu
- * @date 2014-12-02T14:23:21+0800
- * @param   {[type]}        ajaxUrl [后端接口地址]
- * @param   {[type]}        params  [参数]
- * @param   {[type]}        type    [GET or POST]
- * @param   {[type]}        custom [ajax更多参数配置]
- * @return   {[type]}                [返回一个ajax对象]
- */
-cacheAjaxObject: function(ajaxUrl, params, type, custom) {
-    //TODO
-}
-</code></pre><h3 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h3><p><strong>所有的变量应该在使用前声明，并且赋予初始值（循环变量可以不考虑）或者null，避免使用undefined；关于全局变量的声明和使用会在后续单独说明。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * [cacheAjaxObject 缓存ajax对象，以便于查看和取消]</span><br><span class="line"> * @author yuqiu</span><br><span class="line"> * @date 2014-12-02T14:23:21+0800</span><br><span class="line"> * @param   &#123;[type]&#125;        ajaxUrl [后端接口地址]</span><br><span class="line"> * @param   &#123;[type]&#125;        params  [参数]</span><br><span class="line"> * @param   &#123;[type]&#125;        type    [GET or POST]</span><br><span class="line"> * @param   &#123;[type]&#125;        custom [ajax更多参数配置]</span><br><span class="line"> * @return   &#123;[type]&#125;                [返回一个ajax对象]</span><br><span class="line"> */</span></span><br><span class="line">cacheAjaxObject: <span class="function"><span class="keyword">function</span>(<span class="params">ajaxUrl, params, type, custom</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//TODO</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h3><p><strong>所有的变量应该在使用前声明，并且赋予初始值（循环变量可以不考虑）或者null，避免使用undefined；关于全局变量的声明和使用会在后续单独说明。</strong></p>
 <p>变量的声明顺序应当按照在当前代码块内出现的先后顺序进行声明，并且按照承载的业务逻辑使用空行进行分割；</p>
 <p>原则上每行声明一个变量并且给予注释，但对于相关度较高的变量可以定义在一个var语句中，例如：</p>
-<pre><code>var width=80, height=60; //头像区域大小
-
-
-var groupController = null,     //组控制器，用户回调刷新
-
-        mapCircleView = null,   //地图部分防控圈对象
-
-        controller = null,      //控制器对象
-
-        compiler = null,        //保存模板对象
-
-        templateUrl = &quot;inc/connection/left/defence-circle-new.html&quot;,     //模板路径
-
-        eventHandler = {};      //事件处理程序
-</code></pre><h3 id="方法声明"><a href="#方法声明" class="headerlink" title="方法声明"></a>方法声明</h3><ul>
-<li><p>内部方法的定义应当以命名函数为主，并且在被调用的代码处就近定义，一般情况下建议置于变量声明之后，并按照在后续代码中出现的调用顺序排列。命名函数的两种写法（case1是函数声明，case2是函数表达式）：</p>
-<pre><code>//case 1:
-function myFun() {
-    //my  function body ...
-}
-//case 2:
-var myFun = function() {
-    //my  function body ...
-};
-</code></pre></li>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> width=<span class="number">80</span>, height=<span class="number">60</span>; <span class="comment">//头像区域大小</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> groupController = <span class="literal">null</span>,     <span class="comment">//组控制器，用户回调刷新</span></span><br><span class="line"></span><br><span class="line">        mapCircleView = <span class="literal">null</span>,   <span class="comment">//地图部分防控圈对象</span></span><br><span class="line"></span><br><span class="line">        controller = <span class="literal">null</span>,      <span class="comment">//控制器对象</span></span><br><span class="line"></span><br><span class="line">        compiler = <span class="literal">null</span>,        <span class="comment">//保存模板对象</span></span><br><span class="line"></span><br><span class="line">        templateUrl = <span class="string">"inc/connection/left/defence-circle-new.html"</span>,     <span class="comment">//模板路径</span></span><br><span class="line"></span><br><span class="line">        eventHandler = &#123;&#125;;      <span class="comment">//事件处理程序</span></span><br></pre></td></tr></table></figure>
+<h3 id="方法声明"><a href="#方法声明" class="headerlink" title="方法声明"></a>方法声明</h3><ul>
+<li>内部方法的定义应当以命名函数为主，并且在被调用的代码处就近定义，一般情况下建议置于变量声明之后，并按照在后续代码中出现的调用顺序排列。命名函数的两种写法（case1是函数声明，case2是函数表达式）：</li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//case 1:</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//my  function body ...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//case 2:</span></span><br><span class="line"><span class="keyword">var</span> myFun = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//my  function body ...</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>对外接口则主要考虑使用对匿名函数的引用，匿名函数也多用于函数回调。</p>
-<pre><code>//对外接口
- return function() {
-
- };
-//回调函数
-myFun(param1, param2, function() {
-    //TODO
-});
-</code></pre></li>
+<li>对外接口则主要考虑使用对匿名函数的引用，匿名函数也多用于函数回调。</li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对外接口</span></span><br><span class="line"> <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line"> &#125;;</span><br><span class="line"><span class="comment">//回调函数</span></span><br><span class="line">myFun(param1, param2, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//TODO</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <h3 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h3><p>命名主要由应该由26个大小写字母(A .. Z, a .. z)，10个数字(0 .. 9)和_(下划线)组成。除框架用的全局变量或者方法，不要使用$符号。详细规则如下：</p>
 <ul>
 <li>常规方法名和变量名请使用首字母小写的Camel命名法，例如：isDate,fPressed，checkIfLocalStorage等等；</li>
@@ -511,7 +437,7 @@ define([&quot;jquery&quot;, &quot;underscore&quot;], function($, _) {
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/07/13/codeStandards/" data-title="JavaScript编程规范 | WEB Development Department 共享平台" data-tsina="null" class="share clearfix">
+	  <div data-url="http://npxawebshare.github.io/2016/07/13/codeStandards/" data-title="JavaScript编程规范 | WEB Development Department 共享平台" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -545,7 +471,7 @@ define([&quot;jquery&quot;, &quot;underscore&quot;], function($, _) {
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/07/13/codeStandards/" data-title="JavaScript编程规范" data-url="http://yoursite.com/2016/07/13/codeStandards/"></div>
+	<div class="ds-thread" data-thread-key="2016/07/13/codeStandards/" data-title="JavaScript编程规范" data-url="http://npxawebshare.github.io/2016/07/13/codeStandards/"></div>
 </section>
 
 
@@ -609,27 +535,7 @@ define([&quot;jquery&quot;, &quot;underscore&quot;], function($, _) {
 			
 		
 			
-				<li><a href="/tags/分享/" title="分享">分享<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/前端/" title="前端">前端<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/环境搭建，pva/" title="环境搭建，pva">环境搭建，pva<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/ajax/" title="ajax">ajax<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/实习学习总结/" title="实习学习总结">实习学习总结<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/tag1/" title="tag1">tag1<sup>1</sup></a></li>
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
 			
 		
 			
@@ -637,11 +543,23 @@ define([&quot;jquery&quot;, &quot;underscore&quot;], function($, _) {
 			
 		
 			
+				<li><a href="/tags/前端/" title="前端">前端<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tag1/" title="tag1">tag1<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tag2/" title="tag2">tag2<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/tag3/" title="tag3">tag3<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+				<li><a href="/tags/环境搭建，pva/" title="环境搭建，pva">环境搭建，pva<sup>1</sup></a></li>
 			
 		
 			
@@ -661,7 +579,15 @@ define([&quot;jquery&quot;, &quot;underscore&quot;], function($, _) {
 			
 		
 			
-				<li><a href="/tags/tag2/" title="tag2">tag2<sup>1</sup></a></li>
+				<li><a href="/tags/分享/" title="分享">分享<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ajax/" title="ajax">ajax<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/实习学习总结/" title="实习学习总结">实习学习总结<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -729,8 +655,9 @@ define([&quot;jquery&quot;, &quot;underscore&quot;], function($, _) {
     </ul>
 </div>
 
-  
-
+  <div class="rsspart">
+	<a href="atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
 
   <div class="weiboshow">
   <p class="asidetitle">新浪微博</p>
@@ -772,6 +699,12 @@ define([&quot;jquery&quot;, &quot;underscore&quot;], function($, _) {
 	</div>
 			
 		
+				<div class="cc-license">
+          <a href="http://creativecommons.org/licenses/by-nc/4.0" class="cc-opacity" target="_blank">
+            <img src="/img/cc-by-nc.svg" alt="Creative Commons" />
+          </a>
+        </div>
+    
 
 		<p class="copyright">
 		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
@@ -956,16 +889,6 @@ $(document).ready(function(){
 <!-- Analytics Begin -->
 
 
-
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
 
 
 
