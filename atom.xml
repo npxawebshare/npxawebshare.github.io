@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://npxawebshare.github.io/"/>
-  <updated>2016-10-24T09:14:59.345Z</updated>
+  <updated>2016-10-24T09:21:31.981Z</updated>
   <id>http://npxawebshare.github.io/</id>
   
   <author>
@@ -16,16 +16,33 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>deal_cache_304_to_200</title>
+    <title>GET请求304缓存问题梳理</title>
     <link href="http://npxawebshare.github.io/2016/10/24/deal-cache-304-to-200/"/>
     <id>http://npxawebshare.github.io/2016/10/24/deal-cache-304-to-200/</id>
     <published>2016-10-24T09:14:59.000Z</published>
-    <updated>2016-10-24T09:14:59.345Z</updated>
+    <updated>2016-10-24T09:21:31.981Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>@author: 段毅</p>
+</blockquote>
+<p> <img src="http://static.zybuluo.com/melunar/8qexwkeyfagxpnwjd0tdqmng/image_1avqvacnprasqoh1hb3hjb5m9.png" alt="angularJs"><br>Angular中给get方法的请求头中添加如图三个参数，可解决在IE下get请求总是从缓存里取而没有真正发送到服务端的问题。跟踪请求会发现从之前的304变为200，请求重新发送成功。<br>参考链接：<a href="http://stackoverflow.com/questions/16098430/angular-ie-caching-issue-for-http#" target="_blank" rel="external">http://stackoverflow.com/questions/16098430/angular-ie-caching-issue-for-http#</a></p>
+<p><img src="http://static.zybuluo.com/melunar/uy3t33qo9nqsztby8gpfeffh/image_1avqvbd5nqcn1a9a13s6vgu1330m.png" alt="ajax"><br>jQuery中可以尝试通过配置ajax参数来实现防止：</p>
+<p>参考链接：<a href="http://www.oschina.net/question/263977_57725?fromerr=zLoLHkb9" target="_blank" rel="external">http://www.oschina.net/question/263977_57725?fromerr=zLoLHkb9</a></p>
+<p>再加上一句设置：<code>$.ajaxSetup({cache: false});</code></p>
+<p>参考链接：<a href="http://www.cnblogs.com/artech/archive/2013/01/03/cache-4-ie.html" target="_blank" rel="external">http://www.cnblogs.com/artech/archive/2013/01/03/cache-4-ie.html</a></p>
+]]></content>
     
     <summary type="html">
     
+      &lt;blockquote&gt;
+&lt;p&gt;@author: 段毅&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt; &lt;img src=&quot;http://static.zybuluo.com/melunar/8qexwkeyfagxpnwjd0tdqmng/image_1avqvacnprasqoh
+    
     </summary>
     
+    
+      <category term="JavaScript" scheme="http://npxawebshare.github.io/tags/JavaScript/"/>
     
   </entry>
   

@@ -4,23 +4,35 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>deal_cache_304_to_200 | WEB Development Department 共享平台</title>
+    <title>GET请求304缓存问题梳理 | WEB Development Department 共享平台</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="np-xa-web">
     
 
     
-    <meta name="description">
+    <meta name="description" content="@author: 段毅
+
+ Angular中给get方法的请求头中添加如图三个参数，可解决在IE下get请求总是从缓存里取而没有真正发送到服务端的问题。跟踪请求会发现从之前的304变为200，请求重新发送成功。参考链接：http://stackoverflow.com/questions/16098430/angular-ie-caching-issue-for-http#
+jQuery中可以尝">
 <meta property="og:type" content="article">
-<meta property="og:title" content="deal_cache_304_to_200">
+<meta property="og:title" content="GET请求304缓存问题梳理">
 <meta property="og:url" content="http://npxawebshare.github.io/2016/10/24/deal-cache-304-to-200/index.html">
 <meta property="og:site_name" content="WEB Development Department 共享平台">
-<meta property="og:description">
-<meta property="og:updated_time" content="2016-10-24T09:14:59.345Z">
+<meta property="og:description" content="@author: 段毅
+
+ Angular中给get方法的请求头中添加如图三个参数，可解决在IE下get请求总是从缓存里取而没有真正发送到服务端的问题。跟踪请求会发现从之前的304变为200，请求重新发送成功。参考链接：http://stackoverflow.com/questions/16098430/angular-ie-caching-issue-for-http#
+jQuery中可以尝">
+<meta property="og:image" content="http://static.zybuluo.com/melunar/8qexwkeyfagxpnwjd0tdqmng/image_1avqvacnprasqoh1hb3hjb5m9.png">
+<meta property="og:image" content="http://static.zybuluo.com/melunar/uy3t33qo9nqsztby8gpfeffh/image_1avqvbd5nqcn1a9a13s6vgu1330m.png">
+<meta property="og:updated_time" content="2016-10-24T09:21:31.981Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="deal_cache_304_to_200">
-<meta name="twitter:description">
+<meta name="twitter:title" content="GET请求304缓存问题梳理">
+<meta name="twitter:description" content="@author: 段毅
+
+ Angular中给get方法的请求头中添加如图三个参数，可解决在IE下get请求总是从缓存里取而没有真正发送到服务端的问题。跟踪请求会发现从之前的304变为200，请求重新发送成功。参考链接：http://stackoverflow.com/questions/16098430/angular-ie-caching-issue-for-http#
+jQuery中可以尝">
+<meta name="twitter:image" content="http://static.zybuluo.com/melunar/8qexwkeyfagxpnwjd0tdqmng/image_1avqvacnprasqoh1hb3hjb5m9.png">
 
     
     <link rel="alternative" href="atom.xml" title="WEB Development Department 共享平台" type="application/atom+xml">
@@ -91,7 +103,7 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/10/24/deal-cache-304-to-200/" title="deal_cache_304_to_200" itemprop="url">deal_cache_304_to_200</a>
+      <a href="/2016/10/24/deal-cache-304-to-200/" title="GET请求304缓存问题梳理" itemprop="url">GET请求304缓存问题梳理</a>
   </h1>
   <p class="article-author">By
        
@@ -111,11 +123,24 @@
 		
 		</div>
 		
-		  
+		<blockquote>
+<p>@author: 段毅</p>
+</blockquote>
+<p> <img src="http://static.zybuluo.com/melunar/8qexwkeyfagxpnwjd0tdqmng/image_1avqvacnprasqoh1hb3hjb5m9.png" alt="angularJs"><br>Angular中给get方法的请求头中添加如图三个参数，可解决在IE下get请求总是从缓存里取而没有真正发送到服务端的问题。跟踪请求会发现从之前的304变为200，请求重新发送成功。<br>参考链接：<a href="http://stackoverflow.com/questions/16098430/angular-ie-caching-issue-for-http#" target="_blank" rel="external">http://stackoverflow.com/questions/16098430/angular-ie-caching-issue-for-http#</a></p>
+<p><img src="http://static.zybuluo.com/melunar/uy3t33qo9nqsztby8gpfeffh/image_1avqvbd5nqcn1a9a13s6vgu1330m.png" alt="ajax"><br>jQuery中可以尝试通过配置ajax参数来实现防止：</p>
+<p>参考链接：<a href="http://www.oschina.net/question/263977_57725?fromerr=zLoLHkb9" target="_blank" rel="external">http://www.oschina.net/question/263977_57725?fromerr=zLoLHkb9</a></p>
+<p>再加上一句设置：<code>$.ajaxSetup({cache: false});</code></p>
+<p>参考链接：<a href="http://www.cnblogs.com/artech/archive/2013/01/03/cache-4-ie.html" target="_blank" rel="external">http://www.cnblogs.com/artech/archive/2013/01/03/cache-4-ie.html</a></p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/JavaScript/">JavaScript</a>
+  </div>
 
 </div>
 
@@ -123,7 +148,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://npxawebshare.github.io/2016/10/24/deal-cache-304-to-200/" data-title="deal_cache_304_to_200 | WEB Development Department 共享平台" data-tsina="null" class="share clearfix">
+	  <div data-url="http://npxawebshare.github.io/2016/10/24/deal-cache-304-to-200/" data-title="GET请求304缓存问题梳理 | WEB Development Department 共享平台" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -149,7 +174,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/10/24/deal-cache-304-to-200/" data-title="deal_cache_304_to_200" data-url="http://npxawebshare.github.io/2016/10/24/deal-cache-304-to-200/"></div>
+	<div class="ds-thread" data-thread-key="2016/10/24/deal-cache-304-to-200/" data-title="GET请求304缓存问题梳理" data-url="http://npxawebshare.github.io/2016/10/24/deal-cache-304-to-200/"></div>
 </section>
 
 
@@ -209,7 +234,7 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>3</sup></a></li>
+				<li><a href="/tags/JavaScript/" title="JavaScript">JavaScript<sup>4</sup></a></li>
 			
 		
 			
@@ -229,10 +254,6 @@
 			
 		
 			
-				<li><a href="/tags/less/" title="less">less<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/ajax/" title="ajax">ajax<sup>1</sup></a></li>
 			
 		
@@ -241,15 +262,7 @@
 			
 		
 			
-				<li><a href="/tags/语法/" title="语法">语法<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/环境搭建，pva/" title="环境搭建，pva">环境搭建，pva<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/md/" title="md">md<sup>1</sup></a></li>
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
 			
 		
 			
@@ -257,7 +270,7 @@
 			
 		
 			
-				<li><a href="/tags/tag2/" title="tag2">tag2<sup>1</sup></a></li>
+				<li><a href="/tags/环境搭建，pva/" title="环境搭建，pva">环境搭建，pva<sup>1</sup></a></li>
 			
 		
 			
@@ -265,11 +278,19 @@
 			
 		
 			
-				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+				<li><a href="/tags/less/" title="less">less<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/插件/" title="插件">插件<sup>1</sup></a></li>
+				<li><a href="/tags/语法/" title="语法">语法<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/markdown/" title="markdown">markdown<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/md/" title="md">md<sup>1</sup></a></li>
 			
 		
 			
@@ -281,7 +302,11 @@
 			
 		
 			
-				<li><a href="/tags/markdown/" title="markdown">markdown<sup>1</sup></a></li>
+				<li><a href="/tags/插件/" title="插件">插件<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tag2/" title="tag2">tag2<sup>1</sup></a></li>
 			
 		
 		</ul>
