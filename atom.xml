@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://npxawebshare.github.io/"/>
-  <updated>2016-10-24T09:24:29.281Z</updated>
+  <updated>2016-10-24T09:37:52.018Z</updated>
   <id>http://npxawebshare.github.io/</id>
   
   <author>
@@ -14,6 +14,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PVA与PVD对接细节梳理</title>
+    <link href="http://npxawebshare.github.io/2016/10/24/PVA%E4%B8%8EPVD%E5%AF%B9%E6%8E%A5%E7%BB%86%E8%8A%82%E6%A2%B3%E7%90%86/"/>
+    <id>http://npxawebshare.github.io/2016/10/24/PVA与PVD对接细节梳理/</id>
+    <published>2016-10-24T09:32:49.000Z</published>
+    <updated>2016-10-24T09:37:52.018Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="用户认证"><a href="#用户认证" class="headerlink" title="用户认证"></a>用户认证</h2><ul>
+<li>pvd是与pva通过session共享的方式进行对接的,当pva登录时session写到redis里,pvd无需登录即可拿到session。</li>
+<li>PVD与PVA使用同一张用户表,即PVA用户表。</li>
+</ul>
+<h2 id="权限控制"><a href="#权限控制" class="headerlink" title="权限控制"></a>权限控制</h2><ul>
+<li>PVA管理PVD的权限,具体是:当PVA启动时会根据配置拉取PVD的功能权限列表,同时更新在自己的功能权限表中。</li>
+<li>当编辑权限时自己从自己的数据库里读取.当PVA登录时会将当前用户对应的PVD权限列表存在在session中,而具体的解析则在进入PVD系统后自行处理。</li>
+</ul>
+<h2 id="页面跳转"><a href="#页面跳转" class="headerlink" title="页面跳转"></a>页面跳转</h2><ul>
+<li>PVA内嵌入PVD页面的跳转是通过nginx转发的。（rewrite命令）</li>
+</ul>
+<h2 id="具体配置信息如下："><a href="#具体配置信息如下：" class="headerlink" title="具体配置信息如下："></a>具体配置信息如下：</h2><p> PVD跳转的页面链接均已/vim/开头,通过pva.conf配置文件中的</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">location</span> <span class="regexp">~* ^/vim/</span> &#123;</span><br><span class="line">    <span class="attribute">rewrite</span><span class="regexp"> ^/vim/(.*)$</span>  http://<span class="variable">$host</span>:88/html/index.html<span class="variable">$2</span> <span class="literal">permanent</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>跳转到配置端口为88的vim.conf配置文件中配置 </p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">location</span><span class="regexp"> ^~</span> /&#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://remoteVim/;</span><br><span class="line">    <span class="attribute">proxy_redirect</span>      default;</span><br><span class="line">    <span class="attribute">proxy_set_header</span>    Host    <span class="variable">$host</span>:<span class="variable">$server_port</span>;</span><br><span class="line">    <span class="attribute">proxy_set_header</span>    X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">    <span class="attribute">proxy_set_header</span>    X-Forwarded-Host <span class="variable">$host</span>:<span class="variable">$server_port</span>;</span><br><span class="line">    <span class="attribute">proxy_set_header</span>    X-Forwarded-Server <span class="variable">$host</span>:<span class="variable">$server_port</span>;</span><br><span class="line">    <span class="attribute">proxy_set_header</span>    X-Forwarded-For  <span class="variable">$proxy_add_x_forwarded_for</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>代理到PVD的真实地址.通过这样的方式处理跨域的问题.
+</code></pre><h2 id="接口请求"><a href="#接口请求" class="headerlink" title="接口请求"></a>接口请求</h2><p><code>location ^~ /pvdservice/ {...}</code>配置转发请求的.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;用户认证&quot;&gt;&lt;a href=&quot;#用户认证&quot; class=&quot;headerlink&quot; title=&quot;用户认证&quot;&gt;&lt;/a&gt;用户认证&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;pvd是与pva通过session共享的方式进行对接的,当pva登录时session写到redis里,pvd无需
+    
+    </summary>
+    
+      <category term="环境搭建" scheme="http://npxawebshare.github.io/categories/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    
+    
+      <category term="pva" scheme="http://npxawebshare.github.io/tags/pva/"/>
+    
+      <category term="pvd" scheme="http://npxawebshare.github.io/tags/pvd/"/>
+    
+  </entry>
   
   <entry>
     <title>GET请求304缓存问题梳理</title>

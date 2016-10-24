@@ -4,32 +4,41 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>实习总结-JavaScript hy-001篇 | WEB Development Department 共享平台</title>
+    <title>PVA与PVD对接细节梳理 | WEB Development Department 共享平台</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="np-xa-web">
     
 
     
-    <meta name="description" content="JavaScript原生ajax原理，发送一个异步请求的主要步骤是：
-创建XMLHttpRequest或ActionXObject(IE浏览器)实例xhr；
-设置xhr的属性onreadystatechange触发的函数，一般要在函数内部判断xhr的readyState属性值，在等于4的时候表示请求正常返回，可以接收和处理xhr的返回值responseText或responseXML；
-创建主函数">
+    <meta name="description" content="用户认证
+pvd是与pva通过session共享的方式进行对接的,当pva登录时session写到redis里,pvd无需登录即可拿到session。
+PVD与PVA使用同一张用户表,即PVA用户表。
+
+权限控制
+PVA管理PVD的权限,具体是:当PVA启动时会根据配置拉取PVD的功能权限列表,同时更新在自己的功能权限表中。
+当编辑权限时自己从自己的数据库里读取.当PVA登录时会将当前用户对应的P">
 <meta property="og:type" content="article">
-<meta property="og:title" content="实习总结-JavaScript hy-001篇">
-<meta property="og:url" content="http://npxawebshare.github.io/2016/04/26/exp-haoyong-001/index.html">
+<meta property="og:title" content="PVA与PVD对接细节梳理">
+<meta property="og:url" content="http://npxawebshare.github.io/2016/10/24/PVA与PVD对接细节梳理/index.html">
 <meta property="og:site_name" content="WEB Development Department 共享平台">
-<meta property="og:description" content="JavaScript原生ajax原理，发送一个异步请求的主要步骤是：
-创建XMLHttpRequest或ActionXObject(IE浏览器)实例xhr；
-设置xhr的属性onreadystatechange触发的函数，一般要在函数内部判断xhr的readyState属性值，在等于4的时候表示请求正常返回，可以接收和处理xhr的返回值responseText或responseXML；
-创建主函数">
-<meta property="og:updated_time" content="2016-08-03T07:49:14.447Z">
+<meta property="og:description" content="用户认证
+pvd是与pva通过session共享的方式进行对接的,当pva登录时session写到redis里,pvd无需登录即可拿到session。
+PVD与PVA使用同一张用户表,即PVA用户表。
+
+权限控制
+PVA管理PVD的权限,具体是:当PVA启动时会根据配置拉取PVD的功能权限列表,同时更新在自己的功能权限表中。
+当编辑权限时自己从自己的数据库里读取.当PVA登录时会将当前用户对应的P">
+<meta property="og:updated_time" content="2016-10-24T09:37:52.018Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="实习总结-JavaScript hy-001篇">
-<meta name="twitter:description" content="JavaScript原生ajax原理，发送一个异步请求的主要步骤是：
-创建XMLHttpRequest或ActionXObject(IE浏览器)实例xhr；
-设置xhr的属性onreadystatechange触发的函数，一般要在函数内部判断xhr的readyState属性值，在等于4的时候表示请求正常返回，可以接收和处理xhr的返回值responseText或responseXML；
-创建主函数">
+<meta name="twitter:title" content="PVA与PVD对接细节梳理">
+<meta name="twitter:description" content="用户认证
+pvd是与pva通过session共享的方式进行对接的,当pva登录时session写到redis里,pvd无需登录即可拿到session。
+PVD与PVA使用同一张用户表,即PVA用户表。
+
+权限控制
+PVA管理PVD的权限,具体是:当PVA启动时会根据配置拉取PVD的功能权限列表,同时更新在自己的功能权限表中。
+当编辑权限时自己从自己的数据库里读取.当PVA登录时会将当前用户对应的P">
 
     
     <link rel="alternative" href="atom.xml" title="WEB Development Department 共享平台" type="application/atom+xml">
@@ -100,14 +109,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/04/26/exp-haoyong-001/" title="实习总结-JavaScript hy-001篇" itemprop="url">实习总结-JavaScript hy-001篇</a>
+      <a href="/2016/10/24/PVA与PVD对接细节梳理/" title="PVA与PVD对接细节梳理" itemprop="url">PVA与PVD对接细节梳理</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="np-xa-web" target="_blank" itemprop="author">np-xa-web</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-26T10:45:55.000Z" itemprop="datePublished"> 发表于 2016-04-26</time>
+    <time datetime="2016-10-24T09:32:49.000Z" itemprop="datePublished"> 发表于 2016-10-24</time>
     
   </p>
 </header>
@@ -116,35 +125,41 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript原生ajax原理，发送一个异步请求的主要步骤是："><span class="toc-number">1.</span> <span class="toc-text">JavaScript原生ajax原理，发送一个异步请求的主要步骤是：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串的使用："><span class="toc-number">2.</span> <span class="toc-text">字符串的使用：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组"><span class="toc-number">3.</span> <span class="toc-text">数组</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#用户认证"><span class="toc-text">用户认证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#权限控制"><span class="toc-text">权限控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#页面跳转"><span class="toc-text">页面跳转</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#具体配置信息如下："><span class="toc-text">具体配置信息如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#接口请求"><span class="toc-text">接口请求</span></a></li></ol>
 		
 		</div>
 		
-		<h3 id="JavaScript原生ajax原理，发送一个异步请求的主要步骤是："><a href="#JavaScript原生ajax原理，发送一个异步请求的主要步骤是：" class="headerlink" title="JavaScript原生ajax原理，发送一个异步请求的主要步骤是："></a>JavaScript原生ajax原理，发送一个异步请求的主要步骤是：</h3><ol>
-<li>创建XMLHttpRequest或ActionXObject(IE浏览器)实例xhr；</li>
-<li>设置xhr的属性onreadystatechange触发的函数，一般要在函数内部判断xhr的readyState属性值，在等于4的时候表示请求正常返回，可以接收和处理xhr的返回值responseText或responseXML；</li>
-<li>创建主函数，用包装发送请求，调用步骤2的触发函数，做出响应。</li>
-</ol>
-<h3 id="字符串的使用："><a href="#字符串的使用：" class="headerlink" title="字符串的使用："></a>字符串的使用：</h3><ol>
-<li>两种不同初始化字符串的区别，<code>String(s)</code>, <code>new String(s)</code>，前者创建变量类型是string，后者是object；</li>
-<li>基本字符获取类的函数：<code>charAt(index)</code> 返回字符串string的第n个字符、<code>charCodeAt(index)</code> 返回第n个字符的Unicode编码、<code>ndexOf(substring[,start])</code>在string中的start位置之后存在substring返回出现的第一个substring 的位置、以及<code>lastIndexOf()</code>的使用方法；</li>
-<li>字符抽取类的几个函数演示：<code>substring(from[, to = end])</code> –返回一个新字符串，包含的字符是从string中的from处到to-1处复制的、<code>substr(from, to)</code>、<code>slice(start, end)</code>返回包括字符串从start开始(包括start)到end为止(不包 括end)的所有字符、<code>split(&quot;?&quot;)</code> 返回截取字符串段的数组、<code>concat(s)</code>连接字符串 一般使用 “+”</li>
-<li><code>replace(regexp, replacement)</code> 替换匹配的第一个、<code>match(reg)</code>返回匹配结果的数组</li>
-</ol>
-<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><ol>
-<li>学习，大部分函数类似string的函数，分清其<code>pop push shift unshift</code>；<code>splice</code>会改变原数组元素，<code>slice</code>不会改变原数组；借助<code>sort</code>函数自定义排序</li>
-<li>函数对象Function的了解，主要是apply和call的使用，他们可以重新定义函数的上下文，了解argument的基本用法;</li>
-<li>Json的基本格式 会遍历<code>json</code>，<code>eval(&quot;(&quot; + jsonstr +&quot;)&quot;)</code>可以把json字符串转换为json对象eval加括号将括号内的表达式（expression）转化为对象，而不是作为语句来执行。</li>
-</ol>
+		<h2 id="用户认证"><a href="#用户认证" class="headerlink" title="用户认证"></a>用户认证</h2><ul>
+<li>pvd是与pva通过session共享的方式进行对接的,当pva登录时session写到redis里,pvd无需登录即可拿到session。</li>
+<li>PVD与PVA使用同一张用户表,即PVA用户表。</li>
+</ul>
+<h2 id="权限控制"><a href="#权限控制" class="headerlink" title="权限控制"></a>权限控制</h2><ul>
+<li>PVA管理PVD的权限,具体是:当PVA启动时会根据配置拉取PVD的功能权限列表,同时更新在自己的功能权限表中。</li>
+<li>当编辑权限时自己从自己的数据库里读取.当PVA登录时会将当前用户对应的PVD权限列表存在在session中,而具体的解析则在进入PVD系统后自行处理。</li>
+</ul>
+<h2 id="页面跳转"><a href="#页面跳转" class="headerlink" title="页面跳转"></a>页面跳转</h2><ul>
+<li>PVA内嵌入PVD页面的跳转是通过nginx转发的。（rewrite命令）</li>
+</ul>
+<h2 id="具体配置信息如下："><a href="#具体配置信息如下：" class="headerlink" title="具体配置信息如下："></a>具体配置信息如下：</h2><p> PVD跳转的页面链接均已/vim/开头,通过pva.conf配置文件中的</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">location</span> <span class="regexp">~* ^/vim/</span> &#123;</span><br><span class="line">    <span class="attribute">rewrite</span><span class="regexp"> ^/vim/(.*)$</span>  http://<span class="variable">$host</span>:88/html/index.html<span class="variable">$2</span> <span class="literal">permanent</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>跳转到配置端口为88的vim.conf配置文件中配置 </p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">location</span><span class="regexp"> ^~</span> /&#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://remoteVim/;</span><br><span class="line">    <span class="attribute">proxy_redirect</span>      default;</span><br><span class="line">    <span class="attribute">proxy_set_header</span>    Host    <span class="variable">$host</span>:<span class="variable">$server_port</span>;</span><br><span class="line">    <span class="attribute">proxy_set_header</span>    X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">    <span class="attribute">proxy_set_header</span>    X-Forwarded-Host <span class="variable">$host</span>:<span class="variable">$server_port</span>;</span><br><span class="line">    <span class="attribute">proxy_set_header</span>    X-Forwarded-Server <span class="variable">$host</span>:<span class="variable">$server_port</span>;</span><br><span class="line">    <span class="attribute">proxy_set_header</span>    X-Forwarded-For  <span class="variable">$proxy_add_x_forwarded_for</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>代理到PVD的真实地址.通过这样的方式处理跨域的问题.
+</code></pre><h2 id="接口请求"><a href="#接口请求" class="headerlink" title="接口请求"></a>接口请求</h2><p><code>location ^~ /pvdservice/ {...}</code>配置转发请求的.</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/环境搭建/">环境搭建</a>
+</div>
+
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/JavaScript/">JavaScript</a><a href="/tags/ajax/">ajax</a><a href="/tags/实习学习总结/">实习学习总结</a>
+  <span></span> <a href="/tags/pva/">pva</a><a href="/tags/pvd/">pvd</a>
   </div>
 
 </div>
@@ -153,7 +168,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://npxawebshare.github.io/2016/04/26/exp-haoyong-001/" data-title="实习总结-JavaScript hy-001篇 | WEB Development Department 共享平台" data-tsina="null" class="share clearfix">
+	  <div data-url="http://npxawebshare.github.io/2016/10/24/PVA与PVD对接细节梳理/" data-title="PVA与PVD对接细节梳理 | WEB Development Department 共享平台" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -166,19 +181,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/04/26/exp-haoyong-002/" title="实习总结-JavaScript hy-002篇">
-  <strong>上一篇：</strong><br/>
-  <span>
-  实习总结-JavaScript hy-002篇</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/04/26/markdown-grammar/"  title="markdown grammar">
+<a href="/2016/10/24/deal-cache-304-to-200/"  title="GET请求304缓存问题梳理">
  <strong>下一篇：</strong><br/> 
- <span>markdown grammar
+ <span>GET请求304缓存问题梳理
 </span>
 </a>
 </div>
@@ -187,7 +194,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/04/26/exp-haoyong-001/" data-title="实习总结-JavaScript hy-001篇" data-url="http://npxawebshare.github.io/2016/04/26/exp-haoyong-001/"></div>
+	<div class="ds-thread" data-thread-key="2016/10/24/PVA与PVD对接细节梳理/" data-title="PVA与PVD对接细节梳理" data-url="http://npxawebshare.github.io/2016/10/24/PVA与PVD对接细节梳理/"></div>
 </section>
 
 
@@ -197,7 +204,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript原生ajax原理，发送一个异步请求的主要步骤是："><span class="toc-number">1.</span> <span class="toc-text">JavaScript原生ajax原理，发送一个异步请求的主要步骤是：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串的使用："><span class="toc-number">2.</span> <span class="toc-text">字符串的使用：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组"><span class="toc-number">3.</span> <span class="toc-text">数组</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#用户认证"><span class="toc-text">用户认证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#权限控制"><span class="toc-text">权限控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#页面跳转"><span class="toc-text">页面跳转</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#具体配置信息如下："><span class="toc-text">具体配置信息如下：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#接口请求"><span class="toc-text">接口请求</span></a></li></ol>
  
   </div>
 
