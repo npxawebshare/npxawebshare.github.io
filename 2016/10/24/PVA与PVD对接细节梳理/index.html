@@ -11,34 +11,40 @@
     
 
     
-    <meta name="description" content="用户认证
+    <meta name="description" content="@author: 马博
+
+用户认证
 pvd是与pva通过session共享的方式进行对接的,当pva登录时session写到redis里,pvd无需登录即可拿到session。
 PVD与PVA使用同一张用户表,即PVA用户表。
 
 权限控制
 PVA管理PVD的权限,具体是:当PVA启动时会根据配置拉取PVD的功能权限列表,同时更新在自己的功能权限表中。
-当编辑权限时自己从自己的数据库里读取.当PVA登录时会将当前用户对应的P">
+当编辑权限时自己从自己的数据库里读取.当PV">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PVA与PVD对接细节梳理">
 <meta property="og:url" content="http://npxawebshare.github.io/2016/10/24/PVA与PVD对接细节梳理/index.html">
 <meta property="og:site_name" content="WEB Development Department 共享平台">
-<meta property="og:description" content="用户认证
+<meta property="og:description" content="@author: 马博
+
+用户认证
 pvd是与pva通过session共享的方式进行对接的,当pva登录时session写到redis里,pvd无需登录即可拿到session。
 PVD与PVA使用同一张用户表,即PVA用户表。
 
 权限控制
 PVA管理PVD的权限,具体是:当PVA启动时会根据配置拉取PVD的功能权限列表,同时更新在自己的功能权限表中。
-当编辑权限时自己从自己的数据库里读取.当PVA登录时会将当前用户对应的P">
-<meta property="og:updated_time" content="2016-10-24T09:37:52.018Z">
+当编辑权限时自己从自己的数据库里读取.当PV">
+<meta property="og:updated_time" content="2016-10-26T06:46:11.133Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PVA与PVD对接细节梳理">
-<meta name="twitter:description" content="用户认证
+<meta name="twitter:description" content="@author: 马博
+
+用户认证
 pvd是与pva通过session共享的方式进行对接的,当pva登录时session写到redis里,pvd无需登录即可拿到session。
 PVD与PVA使用同一张用户表,即PVA用户表。
 
 权限控制
 PVA管理PVD的权限,具体是:当PVA启动时会根据配置拉取PVD的功能权限列表,同时更新在自己的功能权限表中。
-当编辑权限时自己从自己的数据库里读取.当PVA登录时会将当前用户对应的P">
+当编辑权限时自己从自己的数据库里读取.当PV">
 
     
     <link rel="alternative" href="atom.xml" title="WEB Development Department 共享平台" type="application/atom+xml">
@@ -129,7 +135,10 @@ PVA管理PVD的权限,具体是:当PVA启动时会根据配置拉取PVD的功能
 		
 		</div>
 		
-		<h2 id="用户认证"><a href="#用户认证" class="headerlink" title="用户认证"></a>用户认证</h2><ul>
+		<blockquote>
+<p>@author: 马博</p>
+</blockquote>
+<h2 id="用户认证"><a href="#用户认证" class="headerlink" title="用户认证"></a>用户认证</h2><ul>
 <li>pvd是与pva通过session共享的方式进行对接的,当pva登录时session写到redis里,pvd无需登录即可拿到session。</li>
 <li>PVD与PVA使用同一张用户表,即PVA用户表。</li>
 </ul>
@@ -181,6 +190,14 @@ PVA管理PVD的权限,具体是:当PVA启动时会根据配置拉取PVD的功能
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2016/10/28/弹出webDialog对话框通讯原理/" title="弹出webDialog对话框通讯原理">
+  <strong>上一篇：</strong><br/>
+  <span>
+  弹出webDialog对话框通讯原理</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2016/10/24/deal-cache-304-to-200/"  title="GET请求304缓存问题梳理">
@@ -266,15 +283,7 @@ PVA管理PVD的权限,具体是:当PVA启动时会根据配置拉取PVD的功能
 			
 		
 			
-				<li><a href="/tags/pva/" title="pva">pva<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/pvd/" title="pvd">pvd<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/规范/" title="规范">规范<sup>1</sup></a></li>
+				<li><a href="/tags/pva/" title="pva">pva<sup>2</sup></a></li>
 			
 		
 			
@@ -282,7 +291,11 @@ PVA管理PVD的权限,具体是:当PVA启动时会根据配置拉取PVD的功能
 			
 		
 			
-				<li><a href="/tags/分享/" title="分享">分享<sup>1</sup></a></li>
+				<li><a href="/tags/less/" title="less">less<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/pvd/" title="pvd">pvd<sup>1</sup></a></li>
 			
 		
 			
@@ -294,18 +307,6 @@ PVA管理PVD的权限,具体是:当PVA启动时会根据配置拉取PVD的功能
 			
 		
 			
-				<li><a href="/tags/tag1/" title="tag1">tag1<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/环境搭建，pva/" title="环境搭建，pva">环境搭建，pva<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/tag3/" title="tag3">tag3<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
 			
 		
@@ -314,15 +315,11 @@ PVA管理PVD的权限,具体是:当PVA启动时会根据配置拉取PVD的功能
 			
 		
 			
-				<li><a href="/tags/markdown/" title="markdown">markdown<sup>1</sup></a></li>
+				<li><a href="/tags/环境搭建，pva/" title="环境搭建，pva">环境搭建，pva<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/md/" title="md">md<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/less/" title="less">less<sup>1</sup></a></li>
 			
 		
 			
@@ -334,7 +331,27 @@ PVA管理PVD的权限,具体是:当PVA启动时会根据配置拉取PVD的功能
 			
 		
 			
+				<li><a href="/tags/规范/" title="规范">规范<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/插件/" title="插件">插件<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tag1/" title="tag1">tag1<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tag2/" title="tag2">tag2<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tag3/" title="tag3">tag3<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/分享/" title="分享">分享<sup>1</sup></a></li>
 			
 		
 		</ul>

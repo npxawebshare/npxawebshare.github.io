@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://npxawebshare.github.io/"/>
-  <updated>2016-10-24T09:37:52.018Z</updated>
+  <updated>2016-10-28T09:39:27.445Z</updated>
   <id>http://npxawebshare.github.io/</id>
   
   <author>
@@ -16,13 +16,66 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>弹出webDialog对话框通讯原理</title>
+    <link href="http://npxawebshare.github.io/2016/10/28/%E5%BC%B9%E5%87%BAwebDialog%E5%AF%B9%E8%AF%9D%E6%A1%86%E9%80%9A%E8%AE%AF%E5%8E%9F%E7%90%86/"/>
+    <id>http://npxawebshare.github.io/2016/10/28/弹出webDialog对话框通讯原理/</id>
+    <published>2016-10-28T09:34:03.000Z</published>
+    <updated>2016-10-28T09:39:27.445Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://static.zybuluo.com/melunar/2vkos6l8z1afsz0og320cq23/image_1b05ab11u8pp1l0ntch1aoloat9.png" alt="弹出webDialog对话框通讯原理"></p>
+<blockquote>
+<p>webDialog页面内核浏览目前一直是IE内核；</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>webDialog内部页面和主web页面的cookie不能共享，localStorage不能共享;</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>在webDialog内部，通过js代码主动关闭webDialog的代码是<br>OnBeforeNavigate2(“window.close”)</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>在webDialog内部，主动触发ocx的事件，对外“通知”消息，使用<br>OnBeforeNavigate2这个js函数,data使用json数据格式</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>OnBeforeNavigate2触发ocx宿主产生事件的原理：【以下涉及到windows编程c++】</p>
+</blockquote>
+<ul>
+<li>基于IE的webBrowser控件都带有OnBeforeNavigate2事件，这个事件监听的就是页面内部url指向，或者页面内部iframe的url访问指向；一旦有新的url请求，事件就被触发了。</li>
+<li>webBrowser控件有大量的事件，例如titleChange,statusChange事件等，经测试发现，OnBeforeNavigate2事件最稳定；于是采用OnBeforeNavigate2事件;</li>
+</ul>
+<h2 id="webDialog内部权限控制方法"><a href="#webDialog内部权限控制方法" class="headerlink" title="webDialog内部权限控制方法"></a>webDialog内部权限控制方法</h2><ul>
+<li>主页面获取权限数据data  </li>
+<li>打开webDialog页面  </li>
+<li>主页面将权限数据data注入webDialog页面  </li>
+<li>webDialog页面内部根据data数据控制内部权限;  </li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://static.zybuluo.com/melunar/2vkos6l8z1afsz0og320cq23/image_1b05ab11u8pp1l0ntch1aoloat9.png&quot; alt=&quot;弹出webDialog对话框通讯原理&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="pva" scheme="http://npxawebshare.github.io/tags/pva/"/>
+    
+  </entry>
+  
+  <entry>
     <title>PVA与PVD对接细节梳理</title>
     <link href="http://npxawebshare.github.io/2016/10/24/PVA%E4%B8%8EPVD%E5%AF%B9%E6%8E%A5%E7%BB%86%E8%8A%82%E6%A2%B3%E7%90%86/"/>
     <id>http://npxawebshare.github.io/2016/10/24/PVA与PVD对接细节梳理/</id>
     <published>2016-10-24T09:32:49.000Z</published>
-    <updated>2016-10-24T09:37:52.018Z</updated>
+    <updated>2016-10-26T06:46:11.133Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="用户认证"><a href="#用户认证" class="headerlink" title="用户认证"></a>用户认证</h2><ul>
+    <content type="html"><![CDATA[<blockquote>
+<p>@author: 马博</p>
+</blockquote>
+<h2 id="用户认证"><a href="#用户认证" class="headerlink" title="用户认证"></a>用户认证</h2><ul>
 <li>pvd是与pva通过session共享的方式进行对接的,当pva登录时session写到redis里,pvd无需登录即可拿到session。</li>
 <li>PVD与PVA使用同一张用户表,即PVA用户表。</li>
 </ul>
@@ -43,8 +96,11 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;用户认证&quot;&gt;&lt;a href=&quot;#用户认证&quot; class=&quot;headerlink&quot; title=&quot;用户认证&quot;&gt;&lt;/a&gt;用户认证&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;pvd是与pva通过session共享的方式进行对接的,当pva登录时session写到redis里,pvd无需
+      &lt;blockquote&gt;
+&lt;p&gt;@author: 马博&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;用户认证&quot;&gt;&lt;a href=&quot;#用户认证&quot; class=&quot;headerlink&quot; title=&quot;用户认证&quot;&gt;&lt;/a&gt;用户认证&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;pvd是与pva通过
     
     </summary>
     
@@ -456,11 +512,11 @@
     </summary>
     
     
-      <category term="css" scheme="http://npxawebshare.github.io/tags/css/"/>
-    
       <category term="sass" scheme="http://npxawebshare.github.io/tags/sass/"/>
     
       <category term="scss" scheme="http://npxawebshare.github.io/tags/scss/"/>
+    
+      <category term="css" scheme="http://npxawebshare.github.io/tags/css/"/>
     
   </entry>
   

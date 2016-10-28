@@ -4,22 +4,61 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>WEB Development Department 共享平台</title>
+    <title>弹出webDialog对话框通讯原理 | WEB Development Department 共享平台</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="np-xa-web">
     
 
     
-    <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="WEB Development Department 共享平台">
-<meta property="og:url" content="http://npxawebshare.github.io/index.html">
+    <meta name="description" content="webDialog页面内核浏览目前一直是IE内核；
+
+
+
+webDialog内部页面和主web页面的cookie不能共享，localStorage不能共享;
+
+
+
+在webDialog内部，通过js代码主动关闭webDialog的代码是OnBeforeNavigate2(“window.close”)
+
+
+
+在webDialog内部，主动触发ocx的事件，对外“通知”消息，使用OnBefore">
+<meta property="og:type" content="article">
+<meta property="og:title" content="弹出webDialog对话框通讯原理">
+<meta property="og:url" content="http://npxawebshare.github.io/2016/10/28/弹出webDialog对话框通讯原理/index.html">
 <meta property="og:site_name" content="WEB Development Department 共享平台">
-<meta property="og:description">
+<meta property="og:description" content="webDialog页面内核浏览目前一直是IE内核；
+
+
+
+webDialog内部页面和主web页面的cookie不能共享，localStorage不能共享;
+
+
+
+在webDialog内部，通过js代码主动关闭webDialog的代码是OnBeforeNavigate2(“window.close”)
+
+
+
+在webDialog内部，主动触发ocx的事件，对外“通知”消息，使用OnBefore">
+<meta property="og:image" content="http://static.zybuluo.com/melunar/2vkos6l8z1afsz0og320cq23/image_1b05ab11u8pp1l0ntch1aoloat9.png">
+<meta property="og:updated_time" content="2016-10-28T09:39:27.445Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WEB Development Department 共享平台">
-<meta name="twitter:description">
+<meta name="twitter:title" content="弹出webDialog对话框通讯原理">
+<meta name="twitter:description" content="webDialog页面内核浏览目前一直是IE内核；
+
+
+
+webDialog内部页面和主web页面的cookie不能共享，localStorage不能共享;
+
+
+
+在webDialog内部，通过js代码主动关闭webDialog的代码是OnBeforeNavigate2(“window.close”)
+
+
+
+在webDialog内部，主动触发ocx的事件，对外“通知”消息，使用OnBefore">
+<meta name="twitter:image" content="http://static.zybuluo.com/melunar/2vkos6l8z1afsz0og320cq23/image_1b05ab11u8pp1l0ntch1aoloat9.png">
 
     
     <link rel="alternative" href="atom.xml" title="WEB Development Department 共享平台" type="application/atom+xml">
@@ -84,247 +123,118 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
+      <div id="main" class="post" itemscope itemprop="blogPost">
   
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/10/28/弹出webDialog对话框通讯原理/" title="弹出webDialog对话框通讯原理" itemprop="url">
-  
-    <h1 itemprop="name">弹出webDialog对话框通讯原理</h1>
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
     
-     
-           <p itemprop="description" >webDialog页面内核浏览目前一直是IE内核；
-
-
-
-webDialog内部页面和主web页面的cookie不能共享，localStorage不能共享;
-
-
-
-在webDialog内部，通过js代码主动关闭webDialog的代码是OnBeforeNavigate2(“win</p>
-        
+      <a href="/2016/10/28/弹出webDialog对话框通讯原理/" title="弹出webDialog对话框通讯原理" itemprop="url">弹出webDialog对话框通讯原理</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="np-xa-web" target="_blank" itemprop="author">np-xa-web</a>
+		
+  <p class="article-time">
+    <time datetime="2016-10-28T09:34:03.000Z" itemprop="datePublished"> 发表于 2016-10-28</time>
     
-    <time datetime="2016-10-28T09:34:03.000Z" itemprop="datePublished">2016-10-28</time>
-  </a>
-</section>
-
-
-
- 
-
-
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#webDialog内部权限控制方法"><span class="toc-text">webDialog内部权限控制方法</span></a></li></ol>
+		
+		</div>
+		
+		<p><img src="http://static.zybuluo.com/melunar/2vkos6l8z1afsz0og320cq23/image_1b05ab11u8pp1l0ntch1aoloat9.png" alt="弹出webDialog对话框通讯原理"></p>
+<blockquote>
+<p>webDialog页面内核浏览目前一直是IE内核；</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>webDialog内部页面和主web页面的cookie不能共享，localStorage不能共享;</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>在webDialog内部，通过js代码主动关闭webDialog的代码是<br>OnBeforeNavigate2(“window.close”)</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>在webDialog内部，主动触发ocx的事件，对外“通知”消息，使用<br>OnBeforeNavigate2这个js函数,data使用json数据格式</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>OnBeforeNavigate2触发ocx宿主产生事件的原理：【以下涉及到windows编程c++】</p>
+</blockquote>
+<ul>
+<li>基于IE的webBrowser控件都带有OnBeforeNavigate2事件，这个事件监听的就是页面内部url指向，或者页面内部iframe的url访问指向；一旦有新的url请求，事件就被触发了。</li>
+<li>webBrowser控件有大量的事件，例如titleChange,statusChange事件等，经测试发现，OnBeforeNavigate2事件最稳定；于是采用OnBeforeNavigate2事件;</li>
+</ul>
+<h2 id="webDialog内部权限控制方法"><a href="#webDialog内部权限控制方法" class="headerlink" title="webDialog内部权限控制方法"></a>webDialog内部权限控制方法</h2><ul>
+<li>主页面获取权限数据data  </li>
+<li>打开webDialog页面  </li>
+<li>主页面将权限数据data注入webDialog页面  </li>
+<li>webDialog页面内部根据data数据控制内部权限;  </li>
+</ul>
   
-<section class="post" itemscope itemprop="blogitem">
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
   
-    <a href="/2016/10/24/PVA与PVD对接细节梳理/" title="PVA与PVD对接细节梳理" itemprop="url">
-  
-    <h1 itemprop="name">PVA与PVD对接细节梳理</h1>
-    
-     
-           <p itemprop="description" >@author: 马博
-
-用户认证
-pvd是与pva通过session共享的方式进行对接的,当pva登录时session写到redis里,pvd无需登录即可拿到session。
-PVD与PVA使用同一张用户表,即PVA用户表。
-
-权限控制
-PVA管理PVD的权限,具体是:当PVA</p>
-        
-    
-    <time datetime="2016-10-24T09:32:49.000Z" itemprop="datePublished">2016-10-24</time>
-  </a>
-</section>
-
-
-
- 
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/10/24/deal-cache-304-to-200/" title="GET请求304缓存问题梳理" itemprop="url">
-  
-    <h1 itemprop="name">GET请求304缓存问题梳理</h1>
-    
-     
-           <p itemprop="description" >@author: 段毅
-
- Angular中给get方法的请求头中添加如图三个参数，可解决在IE下get请求总是从缓存里取而没有真正发送到服务端的问题。跟踪请求会发现从之前的304变为200，请求重新发送成功。参考链接：http://stackoverflow.com/quest</p>
-        
-    
-    <time datetime="2016-10-24T09:14:59.000Z" itemprop="datePublished">2016-10-24</time>
-  </a>
-</section>
-
-
-
- 
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/09/22/ES5-new-about/" title="ES5新特性ing" itemprop="url">
-  
-    <h1 itemprop="name">ES5新特性ing</h1>
-    
-     
-           <p itemprop="description" >数组迭代 &amp;amp; 字符串 &amp;amp; json数组的新方法forEach、map、filter、some、every、indexOf, lastIndexOfreduce(function(previous,current,currentIndex,array)), redu</p>
-        
-    
-    <time datetime="2016-09-22T10:09:55.000Z" itemprop="datePublished">2016-09-22</time>
-  </a>
-</section>
-
-
-
- 
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/09/22/css3-new-about/" title="css3 新特性ing" itemprop="url">
-  
-    <h1 itemprop="name">css3 新特性ing</h1>
-    
-     
-           <p itemprop="description" >CSS3 新特性http://www.ibm.com/developerworks/cn/web/1202_zhouxiang_css3/
-
-几行简单的 CSS 代码便可实现一系列令人眼前一亮的效果，比用 JavaScript 去模拟这样的效果要好得多，不仅降低了复杂度，变得易维</p>
-        
-    
-    <time datetime="2016-09-22T10:06:20.000Z" itemprop="datePublished">2016-09-22</time>
-  </a>
-</section>
-
-
-
- 
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/09/22/less-about/" title="less 学习笔记" itemprop="url">
-  
-    <h1 itemprop="name">less 学习笔记</h1>
-    
-     
-           <p itemprop="description" >Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。
-
-Less 可以运行在 Node 或浏览器端。
-使用方法服务（node）端
-安装 $ npm install -g less
-编译less文件 $ le</p>
-        
-    
-    <time datetime="2016-09-22T10:04:24.000Z" itemprop="datePublished">2016-09-22</time>
-  </a>
-</section>
-
-
-
- 
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/09/22/sass-about/" title="Sass 学习笔记" itemprop="url">
-  
-    <h1 itemprop="name">Sass 学习笔记</h1>
-    
-     
-           <p itemprop="description" >http://www.w3cplus.com/sassguide/
-
-基本特性
-sass中可以定义变量，方便统一修改和维护
-sass可以进行选择器的嵌套，表示层级关系
-sass中如导入其他sass文件(可以使用导入文件的变量)，最后编译为一个css文件，优于纯css的@impor</p>
-        
-    
-    <time datetime="2016-09-22T08:43:48.000Z" itemprop="datePublished">2016-09-22</time>
-  </a>
-</section>
-
-
-
- 
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/08/11/执法记录系统解决方案/" title="执法记录系统解决方案" itemprop="url">
-  
-    <h1 itemprop="name">执法记录系统解决方案</h1>
-    
-     
-           <p itemprop="description" >东方网力执法记录系统，主要是针对执法部门的特殊使用需求，推出的单警执法记录系统，能够实现执法场景录入、GPS定位、3G/4G无线图传、数据自动采集与上传、数据综合查询、管理、应用等功能，是执法部门实现息化、规范化的有力工具。东方网力执法记录系统包含：执法记录仪前端、数据采集工作站</p>
-        
-    
-    <time datetime="2016-08-11T08:21:42.000Z" itemprop="datePublished">2016-08-11</time>
-  </a>
-</section>
-
-
-
- 
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/08/11/pva/" title="pva" itemprop="url">
-  
-    <h1 itemprop="name">pva</h1>
-    
-     
-           <p itemprop="description" >视云实战应用解决方案以视频为核心，整合摄像机、卡口、电警、GPS、灯杆以及社会监控资源等各类资源，实现视频图像资源的信息共享和统一管理。通过梳理分析公安各部门各警种对实战应用的需求，采用云计算、大数据分析以及基于深度学习的智能识别算法等先进技术，为用户提供了跨区域、跨部门、跨警种</p>
-        
-    
-    <time datetime="2016-08-11T08:16:18.000Z" itemprop="datePublished">2016-08-11</time>
-  </a>
-</section>
-
-
-
- 
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/07/21/PVA-Environment-Building/" title="PVA Environment Building" itemprop="url">
-  
-    <h1 itemprop="name">PVA Environment Building</h1>
-    
-     
-           <p itemprop="description" >PVA开发环境搭建说明一、开发前准备1、开发环境Windows操作系统 32位/64位
-相关资源获取，在公司的共享服务器的目录中有全套的开发工具可供快速下载 地址：\\192.168.60.170\xian_Test\10_开发使用工具\PVA开发工具套装
-
-SVN：源代码版本控</p>
-        
-    
-    <time datetime="2016-07-21T09:30:52.000Z" itemprop="datePublished">2016-07-21</time>
-  </a>
-</section>
-
-
-
- 
-
-
-
-  <nav id="page-nav" class="clearfix unexpand">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
-  </nav>
+  <span></span> <a href="/tags/pva/">pva</a>
+  </div>
 
 </div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://npxawebshare.github.io/2016/10/28/弹出webDialog对话框通讯原理/" data-title="弹出webDialog对话框通讯原理 | WEB Development Department 共享平台" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/10/24/PVA与PVD对接细节梳理/"  title="PVA与PVD对接细节梳理">
+ <strong>下一篇：</strong><br/> 
+ <span>PVA与PVD对接细节梳理
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/10/28/弹出webDialog对话框通讯原理/" data-title="弹出webDialog对话框通讯原理" data-url="http://npxawebshare.github.io/2016/10/28/弹出webDialog对话框通讯原理/"></div>
+</section>
+
+
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#webDialog内部权限控制方法"><span class="toc-text">webDialog内部权限控制方法</span></a></li></ol>
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -624,14 +534,103 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
 });
 </script>
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
 
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"npxawebshare"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
 
 
 
@@ -690,4 +689,4 @@ $(document).ready(function(){
 <!-- Tiny_search End -->
 
   </body>
- </html>
+</html>
